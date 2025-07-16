@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>maighty's Blog</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .top {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      padding: 20px;
+      background-color: #eaf2ef;
+      border-radius: 10px;
+    }
+
+    .logo {
+      font-size: 32px;
+      font-weight: bold;
+      margin: 0;
+      color: rgb(29, 82, 64);
+    }
+
+    .buttons {
+      display: flex;
+      gap: 10px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: rgb(29, 82, 64);
+      color: white;
+      border: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    button:hover {
+      background-color: rgb(45, 105, 82);
+      transform: scale(1.05);
+    }
+
+    .content {
+      margin-top: 30px;
+    }
+
+    .blog1, .blog2 {
+      background-color: white;
+      padding: 20px;
+      margin-bottom: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      transition: box-shadow 0.3s ease;
+    }
+
+    .blog1:hover, .blog2:hover {
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .ooty, .blog2img, .blog3img {
+      width: 100%;
+      max-width: 400px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+
+    .recent {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .blog2 {
+      flex: 1 1 300px;
+    }
+
+    .more-text {
+      display: none;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 768px) {
+      .top {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .buttons {
+        justify-content: center;
+        margin-top: 10px;
+      }
+
+      .recent {
+        flex-direction: column;
+      }
+
+      .ooty, .blog2img, .blog3img {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    
+    <div class="top">
+      <div class="logo">BONAPARTE'S BLOG</div>
+      <div class="buttons">
+        <a href="index.html">
+        <button class="btn">Home</button></a>
+        <button class="about">About</button>
+        <button class="contact">Contact</button>
+      </div>
+    </div>
+
+   
+    <div class="content">
+
+      <div class="blog1">
+        <h1>1. My Conquests in Italy and Munnar</h1>
+        <img class="ooty" src="blog1.jpg" alt="Ooty Image"/>
+        <p>
+          “I advanced with the precision of an artillery strike…”As I stood on the rolling tea‑clad hills of Munnar...
+          <span class="more-text" id="more1">
+            , it reminded me of the Apennines—green, immovable, and inspiring. The morning mist felt like the rumor of armies approaching. In this place, I planned my strategies over steaming cups of chai rather than maps, yet the discipline remained the same.
+
+
+          “Here, amid tranquil plantations, I feel both invincible and contemplative. The breeze whispers of campaigns past, and in its soft echo I sense the discipline of my soldiers marching at dawn.”
+          </span>
+        </p>
+        <button onclick="toggleReadMore('more1', this)">Read More</button>
+      </div>
+
+      <h2>Recent Blog Posts</h2>
+
+      <div class="recent">
+
+        <!-- Blog 2 -->
+        <div class="blog2">
+          <img class="blog2img" src="blog2.jpg" alt="Blog 2"/>
+          <h3>2. Meditations in Egypt and the Sphinx</h3>
+          <p>
+           “Between pyramids and timeless stone, I reflected upon empire…”
+            <span class="more-text" id="more2">
+            Under the unyielding gaze of the Great Sphinx, I felt the pulse of ancient dynasties beneath my feet. This image of eternity put into stark contrast the fleeting glow of my own reign. In the desert’s silence, I penned thoughts on power, legacy, and the burdens of leadership.
+
+            “The Sphinx watches without judgment. I, once ruler of nations, here kneel merely a man. In this solitude, I realize that all empires—like pillars of sand—must eventually yield to time.”
+            </span>
+          </p>
+          <h6>Date: 23/02/1827</h6>
+          <button onclick="toggleReadMore('more2', this)">Read More</button>
+        </div>
+
+        <!-- Blog 3 -->
+        <div class="blog2">
+          <img class="blog3img" src="blog3.jpg" alt="Blog 3"/>
+          <h3>3. Reflections on the Seine in Paris</h3>
+          <p>
+            “Returning home, the riverbanks taught me humility…”
+            <span class="more-text" id="more3">
+              Walking along the Seine’s banks, bathed in twilight’s golden haze, I recalled my first days in Paris: the grandeur of triumph, then the sting of exile. Each ripple of the river carried memories—of speeches echoing through the Tuileries, of Waterloo’s smoke rising above distant hills.
+
+              “Paris welcomes me not as an emperor, but as a man seeking solace. The river flows as I once did—powerful, yet always at the mercy of its course.”
+            </span>
+          </p>
+          <h6>Date: 03/03/1827</h6>
+          <button onclick="toggleReadMore('more3', this)">Read More</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function toggleReadMore(id, button) {
+      const moreText = document.getElementById(id);
+      if (moreText.style.display === "inline") {
+        moreText.style.display = "none";
+        button.textContent = "Read More";
+      } else {
+        moreText.style.display = "inline";
+        button.textContent = "Read Less";
+      }
+    }
+  </script>
+</body>
+</html>
